@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background: url(kutuphane.jpg);
+            background-size: cover;
+        }
+
+        .book {
+            width: 200px;
+            height: 300px;
+            transform-style: preserve-3d;/*alt elemanlarının 3D dönüşümlerini korumasını sağlar.*/
+        }
+
+        .page {
+            background: url(sayfa.jpg);
+            width: 200px;
+            height: 300px;
+            text-align: center;
+            position: absolute;
+            z-index: -1;
+            
+        }
+
+        .binding {
+            position: absolute;
+            width: 200px;
+            height: 300px;
+            background: url(calikusu.jpg);
+            background-size: cover;
+            transition: all 1s;
+            transform-origin: left;
+        }
+
+        .book:hover .binding {
+            transform: perspective(800px) rotateY(-90deg);
+            /* .book elemanının üzerine gelindiğinde uygulanan dönüşüm belirlenir. Önce 800px perspektif uygulanır, ardından Y ekseni etrafında -90 derece döndürülür */
+            transform-origin: left;
+            /* Dönüşümler için orijin "sol" olarak belirlenir */
+        }
+
+        /*NOT!!! “Origin” (orijin), bir elemanın dönüşümünün merkezini belirler. Örneğin, transform-origin: left; kodu, elemanın sol tarafından döndürüleceğini belirtir.
+                  transform-origin: center; kodu ise elemanın merkezinden döndürüleceğini belirtir.*/
+    </style>
+</head>
+
+<body>
+    <div class="book">
+        <div class="page">
+            <h1>ÖNSÖZ</h1>Çalıkuşu, Reşat Nuri Güntekin'in ilk defa 1922'de tefrika edilmeye başlanıp 1923'te kitap
+            olarak yayımlanan, 1937'de büyük değişikliklerle tefrika edilen romanıdır.
+        </div>
+        <div class="binding"></div>
+    </div>
+</body>
+
+</html>
